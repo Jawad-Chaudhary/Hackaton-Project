@@ -1,0 +1,99 @@
+body {
+  font-family: Arial, sans-serif, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-image: linear-gradient(rgb(102, 6, 6),rgb(167, 9, 9),rgb(207, 9, 9),rgb(245, 5, 5));
+}
+
+.form-container {
+  background-color: rgba(230, 228, 228, 0.377);
+  border: 2px dashed white;
+  color: rgb(245, 244, 244);
+  text-shadow: 2px 0 5px rgb(253, 133, 133);
+  box-shadow: 0 0 10px  rgba(255, 255, 255, 0.55);
+  box-shadow:inset 0 0 10px  rgba(255, 255, 255, 0.55);
+}
+
+.form-container, .resume-container {
+  width: 35%;
+  margin: 30px auto;
+  padding: 20px 40px;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+.form-container h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+.section h3 {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  text-decoration: underline rgb(255, 72, 0) 5px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+input {
+  width: 90%;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 30px;
+  border: none;
+  box-shadow:inset 0 0 3px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+}
+
+button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 10px;
+  margin-left: 15px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+button:hover {
+  margin-left: 0;
+  padding: 10px 35px;
+  opacity: 0.8;
+
+  background-color: #c40303;
+}
+button:active {
+  opacity: 0.5;
+}
+
+.resume-container {
+  background-color: rgba(255, 255, 255, 0.651);
+}
+
+.resume-container h2 {
+  color: white;
+  text-shadow: 2px 0 4px black;
+  text-decoration: underline red;
+  text-align: center;
+}
+.resume-container h3 {
+  color: white;
+  text-shadow: 1px 0 4px rgba(0, 0, 0, 0.795);
+}
+
+.resume-container p, h4 {
+  margin: 10px 0;
+  color: white;
+  text-shadow: 1px 0 4px rgba(0, 0, 0, 0.795);
+}
