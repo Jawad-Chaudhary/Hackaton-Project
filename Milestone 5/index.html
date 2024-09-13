@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Resume Builder</title>
+    <title>Shareable Resume Builder</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <div class="head-title">Shareable Resume</div>
     <div class="resume-border">
         <div class="form-container">
             <h1>Fill out your details</h1>
             <form id="resumeForm">
                 <div class="section">
                     <h3>Personal Information</h3>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
                     <label for="name">Name:</label>
                     <input type="text" id="name" required>
                     <label for="email">Email:</label>
                     <input type="email" id="email" required>
                     <label for="phone">Phone:</label>
                     <input type="text" id="phone" required>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" required>
                 </div>
     
                 <div class="section">
@@ -56,10 +58,13 @@
 
     <div class="resume-container" id="resumeContainer">
         <h2>Your Resume</h2>
+        <!-- Resume will bew generated below -->
         <div id="resumeContent"></div>
-        <div class="resume-button">
-            <button id="shareLink">Share Resume</button>
-            <a href="resume.pdf" download class="downloadPDF">Download Resume</a>
+        <br>
+        <!-- Shareable button -->
+        <div class="shareable-button" style="display: block; ;">
+            <button><a href="#" id="shareable-link" target="_blank" style="text-decoration: none black">Share Link</a></button>
+            <button id="download-pdf"><b>Download as PDF</b></button>
         </div>
         <p id="generatedLink"></p>
     </div>

@@ -1,10 +1,14 @@
 // Getting form element tags
 const resumeForm = document.getElementById("resumeForm");
 const resumeContent = document.getElementById("resumeContent");
+const shareableLinkContainer = document.getElementById('shareable-button');
+const shareableLinkElement = document.getElementById('shareable-link');
+const downloadPdfButton = document.getElementById('download-pdf');
 // adding event listener for form submission
 resumeForm.addEventListener("submit", function (e) {
     e.preventDefault();
     // Collecting form data
+    const username = document.getElementById("username").value;
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
@@ -17,7 +21,8 @@ resumeForm.addEventListener("submit", function (e) {
     const skills = document.getElementById("skills").value;
     // updating resume content dynamically
     resumeContent.innerHTML = `
-        <div contenteditable="true" class="editable"><h3>${name}</h3></div>
+    <div contenteditable="true" class="editable"><h3>${name}</h3></div>
+        <div contenteditable="true" class="editable"><p><strong>Username:</strong> ${username}</p></div>
         <div contenteditable="true" class="editable"><p><strong>Email:</strong> ${email}</p></div>
         <div contenteditable="true" class="editable"><p><strong>Phone:</strong> ${phone}</p></div>
 
@@ -37,30 +42,40 @@ resumeForm.addEventListener("submit", function (e) {
         section.addEventListener('blur', () => {
             const updatedContent = section.innerHTML;
             console.log('Content updated:', updatedContent);
-            // You can add code here to store this change in local storage or send it to the server.
-        });
-        // Highlight the section on focus for better user experience
-        section.addEventListener('focus', () => {
-            section.classList.add('editing');
-        });
-        // Remove highlight after editing is done
-        section.addEventListener('blur', () => {
-            section.classList.remove('editing');
         });
     });
+    // Generate a shareable URL with username
+    const shareableURL = `${window.location.origin}?username=${encodeURIComponent(username)}`;
+    // Display the shareable link
+    shareableLinkContainer.style.display = 'block';
+    shareableLinkElement.href = shareableURL;
+    shareableLinkElement.textContent = shareableURL;
 });
-// Add CSS for better UX when editing
-const style = document.createElement('style');
-style.innerHTML = `
-    .editable {
-        border: 1px solid transparent;
-        padding: 5px;
-        transition: border 0.3s ease;
+// Handle PDF download
+downloadPdfButton.addEventListener('click', () => {
+    window.print(); // This will open the print dialog and allow the user to save and download as PDF
+});
+// Prefill the form based on the username in the URL
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const username = urlParams.get('username');
+    if (username) {
+        // Autofill form if data is found in localStorage
+        const savedResumeData = localStorage.getItem(username);
+        if (savedResumeData) {
+            const resumeData = JSON.parse(savedResumeData);
+            document.getElementById("username").value = username;
+            document.getElementById("name").value = resumeData.name;
+            document.getElementById("email").value = resumeData.email;
+            document.getElementById("phone").value = resumeData.phone;
+            document.getElementById("degree").value = resumeData.degree;
+            document.getElementById("school").value = resumeData.school;
+            document.getElementById("gradDate").value = resumeData.gradDate;
+            document.getElementById("jobTitle").value = resumeData.jobTitle;
+            document.getElementById("company").value = resumeData.company;
+            document.getElementById("duration").value = resumeData.duration;
+            document.getElementById("skills").value = resumeData.skills;
+        }
     }
-    .editable.editing {
-        border: 1px solid #007bff;
-        background-color: #f8f9fa;
-    }
-`;
-document.head.appendChild(style);
+});
 export {};

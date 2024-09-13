@@ -9,6 +9,22 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.head-title {
+  color: white;
+  font-size: 35px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-decoration: underline blueviolet 5px;
+  margin-bottom: 20px;
+
+  animation: head linear 2s forwards;  
+}
+
+@keyframes head {
+  from {transform: scaleY(25deg); opacity: 0;}
+  to {transform: scaleY(); opacity: 1;}
+}
 .resume-border {
   position: relative;
   display: flex;
@@ -121,7 +137,7 @@ button:active, .downloadPDF:active {
 }
 
 @media only screen and (max-width: 768px) {
-   .resume-border {
+   .resume-border, .resume-container {
     width: 75%;
   }
 }
