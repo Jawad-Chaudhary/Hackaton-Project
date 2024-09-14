@@ -136,3 +136,25 @@ section {
 #toggle-skills:active {
   opacity: 0.6;
 }
+@media only screen and (max-width: 768px) {
+  .resume-border, .resume-container,header, section {
+   width: 70%;
+ }
+ .container {
+  width: 80%;
+ }
+ .info img {
+  width: 70px;
+  height: 70px;
+ }
+ .pr-info {
+  width: 100%;
+ }
+ .info-2 {
+  width: 100%;
+  font-size: small;
+ }
+ .resume-header {
+  font-size: 45px;
+ }
+}
